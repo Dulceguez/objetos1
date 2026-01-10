@@ -11,7 +11,15 @@ public class Individual extends Plan {
 	public double precioBase() {
 		return 20 * cantMinutos;
 	}
-	public double montoPenalizacion() {
-		return 300;
+	public double montoPenalizacion(int count) {
+		if (count > 1) {
+			int excedente = count - 1;
+			return excedente * 300;
+		} return 0;
+	}
+
+	@Override
+	public boolean antiguedadMayor(LocalDate fechaAlta) {
+		return false;
 	}
 }

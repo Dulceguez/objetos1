@@ -6,11 +6,22 @@ public class Grupal extends Plan {
 		super(cantP);
 	}
 	public double precioBase() {
-		return 800 * super.cantIp;
+		return 800 * this.cantIp;
 	}
 
-	public double montoPenalizacion() {
-		return 500;
+	public double montoPenalizacion(int count) {
+		if (count > this.getCantIP()) {
+			int excedente = count - this.getCantIP();
+			return excedente * 500;
+		} return 0;
+	}
+	
+	@Override
+	public boolean antiguedadMayor(LocalDate fechaAlta) {
+		if (Period.between(fechaAlta, LocalDate.now()).getYears() > 10) {
+			return true;
+		}
+		return false;
 	}
 	
 }

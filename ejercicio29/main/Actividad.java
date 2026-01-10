@@ -18,6 +18,9 @@ public abstract class Actividad {
 	public boolean esIgual(String ip) {
 		return this.ip.equals(ip);
 	}
+	public String getIp() {
+		return this.ip;
+	}
 	public abstract double monto();
 	
 }
